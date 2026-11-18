@@ -1,6 +1,6 @@
 ---
 name: plugin
-description: Act as the plugin-domain router and enforce discover-before-create.
+description: "Route plugin requests through discovery before creation. Use to verify a PMCR-O package, its Codex projection, or the reviewed package fleet; do not install plugins, invoke their providers, or rewrite skill policy."
 ---
 # plugin
 
@@ -31,8 +31,10 @@ A PASS requires actual evidence. A declared path or emitted invocation is not pr
 
 For `/plugin:plugin:validate-package`, run `python3 -B scripts/validate_package.py /absolute/plugin-checkout`
 with the `agentskills` CLI on PATH. Pass more checkout roots to check them in one run.
-This checks the canonical manifest, its Codex projection, and portable skill structure.
+This checks the canonical manifest, its Codex projection, portable skill structure and static Python syntax.
 It does not install plugins, run skill scripts, or test model behavior.
+
+For `/plugin:plugin:verify-fleet`, run `python3 -B scripts/verify_fleet.py --fetch` from the skill directory. Use `--checkouts /absolute/fleet` instead for local snapshots. Read `assets/fleet-lock.json` when comparing the commit and skill inventory; update pins only after review. The current Plugin Agent tree is checked separately from the pinned fleet.
 
 ## Pitfalls
 Emission is not invocation. Discovery is not authorization. Skills-only packaging does not itself create a runtime tool.

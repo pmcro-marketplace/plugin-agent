@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -89,12 +90,36 @@ def check_skill(skill, executable):
     return None
 
 
+def resource_errors(skill):
+    errors = []
+    def on_error(_):
+        errors.append(f"skills/{skill.name}: could not read the resource tree")
+
+    for parent, directories, files in os.walk(skill, followlinks=False, onerror=on_error):
+        for name in sorted(directories + files):
+            path = Path(parent) / name
+            rel = path.relative_to(skill).as_posix()
+            if path.is_symlink() or not (path.is_file() or path.is_dir()):
+                errors.append(f"skills/{skill.name}/{rel}: expected a regular file or directory")
+            elif path.is_file() and path.suffix == ".py":
+                try:
+                    with path.open("rb") as stream:
+                        raw = stream.read(1_048_577)
+                    if len(raw) > 1_048_576:
+                        raise ValueError("size limit")
+                    compile(raw, rel, "exec")
+                except (OSError, SyntaxError, ValueError, RecursionError) as exc:
+                    errors.append(f"skills/{skill.name}/{rel}: static Python check failed ({type(exc).__name__})")
+    return errors
+
+
 def audit(root, skills_validator):
     errors, names = [], []
-    canonical, codex = None, None
+    canonical, codex, canonical_valid = None, None, False
     try:
         canonical = read_manifest(root / "plugin.json")
         errors.extend(canonical_errors(canonical))
+        canonical_valid = not errors
     except (ValueError, OSError, RecursionError) as exc:
         errors.append(f"plugin.json: {exc}")
     try:
@@ -104,7 +129,7 @@ def audit(root, skills_validator):
         codex = read_manifest(host / "plugin.json")
     except (ValueError, OSError, RecursionError) as exc:
         errors.append(f".codex-plugin/plugin.json: {exc}")
-    if canonical is not None and codex is not None and not canonical_errors(canonical):
+    if canonical is not None and codex is not None and canonical_valid:
         errors.extend(projection_errors(canonical, codex))
     skills = root / "skills"
     if skills.is_symlink() or not skills.is_dir():
@@ -117,10 +142,13 @@ def audit(root, skills_validator):
             entry = skill / "SKILL.md"
             if skill.is_symlink() or entry.is_symlink() or not entry.is_file():
                 errors.append(f"skills/{skill.name}: expected a real skill directory with SKILL.md")
-            elif skills_validator is not None:
-                issue = check_skill(skill, skills_validator)
-                if issue:
-                    errors.append(issue)
+            else:
+                local_errors = resource_errors(skill)
+                errors.extend(local_errors)
+                if skills_validator is not None and not local_errors:
+                    issue = check_skill(skill, skills_validator)
+                    if issue:
+                        errors.append(issue)
         if not names:
             errors.append("no skill entries were found")
     if skills_validator is None:

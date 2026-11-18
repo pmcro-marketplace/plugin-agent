@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "reviewed": {
+    "checker-agent": ["ae8375421bbc1bf9a65c52b1057da5523bb0857a", "checker", ["check"]],
+    "docker-agent": ["df58c80d350622cb5eb790dbe157c4ff42acc4f2", "docker", ["doctor", "host"]],
+    "github-agent": ["2d8ed6d1616095ad972f1e388553aad63dfb9619", "github", ["actions", "change-management", "github", "local-actions", "repository-discovery", "sync"]],
+    "hook-agent": ["8389439dd55d61302d2ba498000922a1344c53a8", "hook", ["hook"]],
+    "maker-agent": ["57a0409cbdee0f95255e068d1ba6be286d0f1b5d", "maker", ["make"]],
+    "marketplace-agent": ["ca23be64714d03f4c55cd19982fca3df1f5c3d01", "marketplace", ["creator", "marketplace"]],
+    "orchestrator-agent": ["0dc3cc2858afa469ee1c01eb72217a1bc8bdf694", "orchestrator", ["orchestrate"]],
+    "planner-agent": ["750a8f6983072bb8e7af109501b886134f17e145", "planner", ["plan"]],
+    "pmcro-agent": ["d87457d3285638cb07a64a1c843577950cc1640d", "pmcro", ["interpret", "pmcro"]],
+    "reflector-agent": ["8b166f59dcfd7408a18081d8249a4836af30807c", "reflector", ["reflect"]],
+    "skill-agent": ["806eb0dd628e4232ff53f21cc77024588eabf39c", "skill", ["skill"]],
+    "template-agent": ["bb3ea4ebcf9e004f43bf655629cfa34b40e45523", "template", ["creator", "template"]]
+  }
+}

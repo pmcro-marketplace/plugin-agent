@@ -20,6 +20,8 @@ If no real lifecycle provider exists, Hook Agent returns `NOT_INVOKED`.
 
 ## Package alignment
 
+`@plugin-agent /verify-fleet` resolves to `/plugin:plugin:verify-fleet`. It checks Plugin Agent and the publicly fetchable, pinned PMCR-O package inventory. No remote provider execution or publication is performed.
+
 `@plugin-agent /validate-package` resolves to `/plugin:plugin:validate-package`.
 Its read-only implementation is `skills/plugin/scripts/validate_package.py`.
 It accepts one or more local plugin checkouts and returns packaging evidence,

@@ -63,6 +63,19 @@ class ValidatePackageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate key"):
             audit.read_manifest(path)
 
+    def test_static_script_check_does_not_execute_package_code(self):
+        script = self.skill / "script.py"
+        script.write_text("raise RuntimeError('would fail if executed')\n")
+        self.assertEqual(self.check()["status"], "PASS")
+        script.write_text("def invalid(:")
+        self.assertIn("static Python check failed", "\n".join(self.check()["errors"]))
+
+    def test_rejects_link_to_external_resource(self):
+        target = self.root / "outside"
+        target.write_text("outside the package")
+        (self.skill / "linked").symlink_to(target)
+        self.assertIn("expected a regular file", "\n".join(self.check()["errors"]))
+
 
 if __name__ == "__main__":
     unittest.main()
