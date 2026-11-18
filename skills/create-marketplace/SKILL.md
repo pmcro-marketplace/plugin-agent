@@ -1,36 +1,36 @@
 ---
 name: create-marketplace
-description: Create or migrate the canonical marketplace plugin only after discovery proves a gap.
+description: Create or migrate the canonical marketplace plugin only after discovery proves a gap. USE FOR creating or migrating the canonical marketplace plugin package. DO NOT USE FOR marketplace catalog membership, generic domain plugins, PMCR-O/template plugins, or existing plugin updates; use the owning sibling skill or Marketplace Agent.
 ---
 # create-marketplace
 
 ## Purpose
-Use Plugin Creator as implementation authority and verify the saved plugin.
+Create or migrate the canonical marketplace plugin package while preserving Marketplace Agent ownership of catalogs and membership.
 
 ## When to Use
-Use this capability when it is the narrowest resolved skill for the current request.
+Use only when the canonical marketplace plugin package is missing or requires an authorized migration.
 
 ## When Not to Use
-Do not duplicate an existing validated capability, broaden scope silently, or claim execution without evidence.
+Do not create or edit marketplace catalogs; use Marketplace Agent. Do not create generic domain, pmcro, or template plugins; use the corresponding sibling creation skill. Do not update an existing owned package when `update` is sufficient.
 
 ## Inputs
-A bounded request, resolved target identity, authorization context, and applicable evidence.
+Discovery evidence, existing marketplace-plugin source if migrating, target package identity, required capabilities, and authorization.
 
 ## Deliverables
-One concrete result or a BLOCKED/NOT_INVOKED disposition with evidence.
+A validated canonical marketplace plugin package or `BLOCKED` / `NOT_INVOKED`.
 
 ## Workflow
-1. Resolve Agent -> Plugin -> Skill -> Function.
-2. Emit the exact functionality before execution.
-3. Invoke the actual available provider or capability.
-4. The installed Hook Agent may autonomously apply applicable lifecycle functions above this target; this skill does not own lifecycle behavior.
-5. Verify the result with evidence.
+1. Prove a creation or migration gap exists.
+2. Preserve the canonical marketplace plugin identity.
+3. Resolve Plugin Creator as implementation authority.
+4. Create or migrate the package without taking ownership of catalog state.
+5. Validate and read back the saved package before PASS.
 
 ## Validation
-A PASS requires actual evidence. A declared path or emitted invocation is not proof of execution.
+PASS requires provider-backed saved-package evidence plus validation.
 
 ## Pitfalls
-Emission is not invocation. Discovery is not authorization. Skills-only packaging does not itself create a runtime tool.
+Plugin creation is not marketplace creation, membership, installation, or execution.
 
 ## Resources
-See references/contract.md and assets/request.json.
+See `references/contract.md`, `assets/request.json`, and `scripts/validate.py`.

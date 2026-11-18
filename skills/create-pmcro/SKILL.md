@@ -1,36 +1,36 @@
 ---
 name: create-pmcro
-description: Create or migrate the canonical pmcro plugin only after discovery proves a gap.
+description: Create or migrate the canonical pmcro plugin only after discovery proves a gap. USE FOR creating or migrating the canonical PMCR-O protocol plugin package. DO NOT USE FOR role-agent execution, other canonical plugins, generic domain plugins, or existing plugin updates; use the owning agent or sibling skill.
 ---
 # create-pmcro
 
 ## Purpose
-Preserve legacy PMCR-O until the canonical replacement is verified.
+Create or migrate the canonical PMCR-O protocol plugin without prematurely retiring validated legacy PMCR-O capability.
 
 ## When to Use
-Use this capability when it is the narrowest resolved skill for the current request.
+Use when discovery proves the canonical PMCR-O package is missing or an authorized migration is required.
 
 ## When Not to Use
-Do not duplicate an existing validated capability, broaden scope silently, or claim execution without evidence.
+Do not run a PMCR-O cycle here. Do not create marketplace/template/domain plugins. Do not update an existing package when `update` is sufficient.
 
 ## Inputs
-A bounded request, resolved target identity, authorization context, and applicable evidence.
+Discovery evidence, current PMCR-O package/source, required protocol capabilities, migration constraints, and authorization.
 
 ## Deliverables
-One concrete result or a BLOCKED/NOT_INVOKED disposition with evidence.
+A validated canonical PMCR-O plugin package or `BLOCKED` / `NOT_INVOKED`.
 
 ## Workflow
-1. Resolve Agent -> Plugin -> Skill -> Function.
-2. Emit the exact functionality before execution.
-3. Invoke the actual available provider or capability.
-4. The installed Hook Agent may autonomously apply applicable lifecycle functions above this target; this skill does not own lifecycle behavior.
-5. Verify the result with evidence.
+1. Establish the gap or migration requirement.
+2. Preserve legacy PMCR-O until replacement verification succeeds.
+3. Resolve Plugin Creator as implementation authority.
+4. Create or migrate the canonical package with stable identity.
+5. Validate the saved package and record replacement evidence.
 
 ## Validation
-A PASS requires actual evidence. A declared path or emitted invocation is not proof of execution.
+PASS requires a real saved package and proof the replacement is valid; declaring a migration is insufficient.
 
 ## Pitfalls
-Emission is not invocation. Discovery is not authorization. Skills-only packaging does not itself create a runtime tool.
+Never retire legacy PMCR-O before replacement proof. Packaging is not runtime execution.
 
 ## Resources
-See references/contract.md and assets/request.json.
+See `references/contract.md`, `assets/request.json`, and `scripts/validate.py`.
