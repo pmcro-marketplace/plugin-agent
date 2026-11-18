@@ -1,36 +1,36 @@
 ---
 name: update
-description: Update an existing owned plugin through Plugin Creator while preserving its identity, release guard, and audience.
+description: Update an existing owned plugin through Plugin Creator while preserving its identity, release guard, and audience. USE FOR authorized changes to an existing plugin package. DO NOT USE FOR creating a missing plugin, marketplace catalog changes, or plugin-domain routing; use a create skill, Marketplace Agent, or plugin.
 ---
 # update
 
 ## Purpose
-Inspect source, prepare a validated package, invoke the real update, and read it back.
+Inspect an existing plugin, prepare the narrowest authorized change, invoke the real update provider, and verify the saved result.
 
 ## When to Use
-Use this capability when it is the narrowest resolved skill for the current request.
+Use when the target plugin already exists and the requested change preserves its domain identity.
 
 ## When Not to Use
-Do not duplicate an existing validated capability, broaden scope silently, or claim execution without evidence.
+Do not create missing plugins, change marketplace membership, or use this as a routing-only skill.
 
 ## Inputs
-A bounded request, resolved target identity, authorization context, and applicable evidence.
+Owned plugin identity, current package/source, requested change, release/audience constraints, authorization, and expected state.
 
 ## Deliverables
-One concrete result or a BLOCKED/NOT_INVOKED disposition with evidence.
+A verified updated plugin package or `BLOCKED` / `NOT_INVOKED`.
 
 ## Workflow
-1. Resolve Agent -> Plugin -> Skill -> Function.
-2. Emit the exact functionality before execution.
-3. Invoke the actual available provider or capability.
-4. The installed Hook Agent may autonomously apply applicable lifecycle functions above this target; this skill does not own lifecycle behavior.
-5. Verify the result with evidence.
+1. Read the current owned plugin and preserve its identity.
+2. Bound the requested change and release constraints.
+3. Resolve Plugin Creator as the real update provider.
+4. Invoke the update.
+5. Read back and validate the saved package before reporting PASS.
 
 ## Validation
-A PASS requires actual evidence. A declared path or emitted invocation is not proof of execution.
+PASS requires provider evidence plus read-back validation of the updated plugin.
 
 ## Pitfalls
-Emission is not invocation. Discovery is not authorization. Skills-only packaging does not itself create a runtime tool.
+Do not overwrite unrelated changes or treat local preparation as proof of saved provider state.
 
 ## Resources
-See references/contract.md and assets/request.json.
+See `references/contract.md`, `assets/request.json`, and `scripts/validate.py`.
