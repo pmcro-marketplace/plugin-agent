@@ -29,6 +29,11 @@ One concrete result or a BLOCKED/NOT_INVOKED disposition with evidence.
 ## Validation
 A PASS requires actual evidence. A declared path or emitted invocation is not proof of execution.
 
+For `/plugin:plugin:validate-package`, run `python3 -B scripts/validate_package.py /absolute/plugin-checkout`
+with the `agentskills` CLI on PATH. Pass more checkout roots to check them in one run.
+This checks the canonical manifest, its Codex projection, and portable skill structure.
+It does not install plugins, run skill scripts, or test model behavior.
+
 ## Pitfalls
 Emission is not invocation. Discovery is not authorization. Skills-only packaging does not itself create a runtime tool.
 

@@ -17,3 +17,10 @@ Core flow:
 This plugin does not implement lifecycle functions.
 If no real lifecycle provider exists, Hook Agent returns `NOT_INVOKED`.
 **Emission is not invocation.**
+
+## Package alignment
+
+`@plugin-agent /validate-package` resolves to `/plugin:plugin:validate-package`.
+Its read-only implementation is `skills/plugin/scripts/validate_package.py`.
+It accepts one or more local plugin checkouts and returns packaging evidence,
+not evidence of installation or agent execution.
