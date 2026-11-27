@@ -1,0 +1,44 @@
+{
+  "plugin": {
+    "version": "0.2.3",
+    "skills": [
+      "create-domain",
+      "create-marketplace",
+      "create-pmcro",
+      "create-template",
+      "plugin",
+      "update"
+    ],
+    "sha256": {
+      ".claude-plugin/plugin.json": "b4c5a295ddf83f8420c659d7adbea712df72dd018958bbf6df3c4cef8fcba9ad",
+      ".codex-plugin/plugin.json": "300f069cd5c60e03754479c99724f420c3ade1db60d93cf603b99063c26de363",
+      "INVOCATION.md": "af5d8599e3a40d56934267e8c5338c108880cc2e5e6d65e6b58cb698a10e46ff",
+      "plugin.json": "c8125daf6ee22b0b1bf67b47380ad0aa2b7d56ef507e11f6c66bc96fc401f0ec",
+      "README.md": "df5456895c6701916aa4474b9cc78379e8bd795a919892f498ba75329693f25f",
+      "skills/create-domain/assets/request.json": "cc048a71c8b9d51f7ffad1aae9b88a40b9dd1f80f3d8926e24147309121dc0ab",
+      "skills/create-domain/references/contract.md": "021f289a45161c60ff88334b22dcc61620266565afb2b9fff9e94c6a3415ff22",
+      "skills/create-domain/scripts/validate.py": "eb0f20462b72b55ec81ab8393c5b2859995187a0a36b9d75f5474865840b28ed",
+      "skills/create-domain/SKILL.md": "eb2ce6efa610cf84a04faf4bde4fe1d5fe23c97a11882fafb6f434c9440180e5",
+      "skills/create-marketplace/assets/request.json": "efd205da575c917bd873118f4cc69756cb4cf9179fdb4d5c0f24edcae20d9496",
+      "skills/create-marketplace/references/contract.md": "5bd5f64b7e9fbb6d420d4faac588c36bc6ad2afd53689698f7725435b6adeba8",
+      "skills/create-marketplace/scripts/validate.py": "084c437930a7a6427cffcf2da0ca4bcd7287f494d9505d9f3424640807891c70",
+      "skills/create-marketplace/SKILL.md": "d103498b5f2037c5c18d80a903974e4fd6dccfc9605257130f95862bfa87868a",
+      "skills/create-pmcro/assets/request.json": "f65e4cd62dd5040835aa401120082e67443ba1def13f1e37d90049d9fa7b8198",
+      "skills/create-pmcro/references/contract.md": "f156daa13b5284643793ebc3fb404801592a3f43d92591f5054846381be79a50",
+      "skills/create-pmcro/scripts/validate.py": "11cc29b1652741c9e9f74b512e125e2af91746bfd6a4843c75de030273987a25",
+      "skills/create-pmcro/SKILL.md": "43cbc3d4879d494095db2b117b6a0547f46621f2d62b3638657998fd1d5a08bf",
+      "skills/create-template/assets/request.json": "5f2dea68adeee5e7a0dc02f6e0348223a324eabf1ce2b774197c812c3e26e214",
+      "skills/create-template/references/contract.md": "56aebb2e3b519b454b09a061bb0961f419d236bdb884cbbcfaab3bf580c64faf",
+      "skills/create-template/scripts/validate.py": "2a77fc003f2d8e95ce99740d88ba5e26d73a1d07aba494955b4db3f8ce8dda53",
+      "skills/create-template/SKILL.md": "94097d5baac1abea9727d125f28003c52b6960dff0d26279be451215eb139a99",
+      "skills/plugin/assets/request.json": "034932a5e72eed9e2d749af2372a7462ab7044e23e24899997c40d703a767aad",
+      "skills/plugin/references/contract.md": "9aa059630af9780f1d8d8d51b182c9b121e7be33b1c287aff6b2619e642af88d",
+      "skills/plugin/scripts/validate.py": "bf65193da8a2abd533cb6fd278359dcde3fd26950dd3d1ece3406f5007249912",
+      "skills/plugin/SKILL.md": "3e69809638a297f648c6682232a98bbeb42a38ad406ef69e45c1ee58e14ba385",
+      "skills/update/assets/request.json": "72bfe1d0d77fe4088b8e588bbc369f814bd3a2c6665531d1c25fd248fc1d774d",
+      "skills/update/references/contract.md": "de3a7341d50a9f45ab6c6a757f385933482669e022bee5da5f6b6e6009a1d165",
+      "skills/update/scripts/validate.py": "0318c69a5338e7eb9f0e4684bd43ee8d8de3c8fec9ba323cce4a13f7e7cd15c1",
+      "skills/update/SKILL.md": "02428d2feff348d93fcc5736418a466ec3a47de12a305586dd4c34a44f4f54aa"
+    }
+  }
+}

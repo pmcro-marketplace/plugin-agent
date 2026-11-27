@@ -1,0 +1,13 @@
+{
+  "name": "plugin-agent",
+  "owner": {
+    "name": "PMCR-O Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "plugin",
+      "source": "./plugins/plugin",
+      "description": "Governed plugin discovery, creation, migration, and update routing through Plugin Creator."
+    }
+  ]
+}

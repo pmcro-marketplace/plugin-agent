@@ -1,0 +1,15 @@
+{
+  "name": "plugin",
+  "version": "0.2.3",
+  "description": "Governed plugin discovery, creation, migration, and update routing through Plugin Creator.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Plugin Agent",
+    "shortDescription": "Author and validate plugins",
+    "longDescription": "Governed plugin discovery, creation, migration, and update routing through Plugin Creator.",
+    "developerName": "Planner Agent",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "defaultPrompt": "For every actionable request, resolve the real Agent -> Plugin -> Skill -> Function. When the installed Hook Agent is available, allow it to autonomously emit and attempt only the applicable lifecycle functions above the target execution. Then invoke the real target capability and verify evidence. Hook emission is not execution; unavailable lifecycle providers return NOT_INVOKED."
+  }
+}

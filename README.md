@@ -1,7 +1,11 @@
-# Plugin Agent
+﻿# plugin-agent
 
-Canonical plugin: `plugin`. Human handle: `@plugin-agent`.
+PMCRO marketplace in the dotnet/skills layout.
 
-Governed plugin discovery, creation, migration, and update routing through Plugin Creator.
+- plugins/<plugin>/plugin.json, .claude-plugin/plugin.json, .codex-plugin/plugin.json
+- plugins/<plugin>/skills/<skill>/SKILL.md (+ scripts/, references/, assets/)
+- tests/<plugin>/<skill>/eval.yaml
+- marketplace manifests: .github/plugin, .claude-plugin, .cursor-plugin, .agents/plugins
 
-The package follows the invocation contract in `INVOCATION.md`. Legacy packages are not retired by installing this canonical package.
+Install: /plugin marketplace add <org>/plugin-agent
+

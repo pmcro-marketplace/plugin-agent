@@ -1,0 +1,6 @@
+{
+  "kind": "CapabilityRequest",
+  "plugin": "plugin",
+  "skill": "create-domain",
+  "status": "proposed"
+}
