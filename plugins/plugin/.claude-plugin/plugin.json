@@ -1,0 +1,8 @@
+{
+  "name": "plugin",
+  "version": "0.2.3",
+  "description": "Governed plugin discovery, creation, migration, and update routing through Plugin Creator.",
+  "author": {
+    "name": "Planner Agent"
+  }
+}
